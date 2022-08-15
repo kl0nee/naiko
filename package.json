@@ -49,7 +49,7 @@
     "passport": "^0.4.1",
     "passport-discord": "^0.1.4",
     "quick.db": "^7.1.1",
-    "sqlite3": "^5.0.0",
+    "sqlite3": "^5.0.3",
     "tresenraya": "0.0.5",
     "yandex-translate-api": "^1.0.1",
     "ytdl-core": "^4.11.0",
