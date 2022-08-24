@@ -1,17 +1,17 @@
 const eris = require('eris');
 const { currentPrefix, setPrefix } =
   new (require('./utils/functions/prefix.js'))();
-const client = new BaseClient("Bot "+ process.env.TOKEN, {
-        options: {
-           autoreconnect: true,
-           allowedMentions: {
-              everyone: true,
-              roles: true,
-              users: true
-           },
-           maxShards: "auto"
-        }
-     }));
+const client = new BaseClient('Bot ' + process.env.TOKEN, {
+  options: {
+    autoreconnect: true,
+    allowedMentions: {
+      everyone: true,
+      roles: true,
+      users: true,
+    },
+    maxShards: 'auto',
+  },
+});
 const fs = require('fs');
 const mongoose = require('./utils/mongoose.js');
 client.queue = new Discord.Collection();
