@@ -1,8 +1,10 @@
-const eris = require("eris")
+const eris = require('eris');
 // Structures
 //let { Structures } = require("discord.js")
-const { currentPrefix , setPrefix } = new (require("./utils/functions/prefix.js"))
+const { currentPrefix, setPrefix } =
+  new (require('./utils/functions/prefix.js'))();
 /*
+little update
 // Guild structure
 Structures.extend("Guild", Guild =>{
 return class extends Guild{
@@ -60,39 +62,43 @@ this.server = this.guild
 }
 })*/
 //let BaseClient = require("./utils/structures/Client.js")
-const client = new BaseClient("Bot "+ process.env["TOKEN"])
-const fs = require("fs")
+const client = new BaseClient('Bot ' + process.env['TOKEN']);
+const fs = require('fs');
 //Connecting to database
-const mongoose = require("./utils/mongoose.js")
+const mongoose = require('./utils/mongoose.js');
 //Functions
 client.queue = new Discord.Collection();
-client.antiinvite = require("./utils/models/prefixes.js")
-client.prefixes = require("./utils/models/prefixes.js")
-client.blacklist = require("./utils/models/blacklist.js")
-client.logs = require("./utils/models/logs.js")
-client.profiles = require("./utils/models/profile.js")
-client.color = "F4F4F4"
+client.antiinvite = require('./utils/models/prefixes.js');
+client.prefixes = require('./utils/models/prefixes.js');
+client.blacklist = require('./utils/models/blacklist.js');
+client.logs = require('./utils/models/logs.js');
+client.profiles = require('./utils/models/profile.js');
+client.color = 'F4F4F4';
 client.devs = [
-	"450291712703856650",
-        "654387658734436364",
-           "852716180158152734"
-]
-client.cooldowns = new Discord.Collection()
-client.snipes = new Map()
-client.cooldown = new Discord.Collection()
-client.comandos = new Discord.Collection()
-client.eventos = new Discord.Collection()
-client.editsnipes = new Map()
+  '450291712703856650',
+  '654387658734436364',
+  '852716180158152734',
+];
+client.cooldowns = new Discord.Collection();
+client.snipes = new Map();
+client.cooldown = new Discord.Collection();
+client.comandos = new Discord.Collection();
+client.eventos = new Discord.Collection();
+client.editsnipes = new Map();
 //Handlers
 //Commands
-for(const cmdName of fs.readdirSync("./commands").filter((k) => k.endsWith(".js"))) {
-const comando = require("./commands/"+cmdName)
-client.comandos.set(comando.name, comando)
+for (const cmdName of fs
+  .readdirSync('./commands')
+  .filter((k) => k.endsWith('.js'))) {
+  const comando = require('./commands/' + cmdName);
+  client.comandos.set(comando.name, comando);
 }
 //Events
-for(const evntName of fs.readdirSync("./events").filter((k) => k.endsWith(".js"))) {
-const evento = require("./events/"+evntName)
-client.on(evntName.replace(".js", ""), evento.bind(null, client))
-client.eventos.set(evntName.replace(".js", ""), evento)
+for (const evntName of fs
+  .readdirSync('./events')
+  .filter((k) => k.endsWith('.js'))) {
+  const evento = require('./events/' + evntName);
+  client.on(evntName.replace('.js', ''), evento.bind(null, client));
+  client.eventos.set(evntName.replace('.js', ''), evento);
 }
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN);
