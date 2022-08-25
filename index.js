@@ -1,6 +1,5 @@
 const eris = require('eris');
-const { currentPrefix, setPrefix } =
-  new (require('./utils/functions/prefix.js'))();
+const { currentPrefix, setPrefix } = new (require('./utilities/prefix.js'))();
 const client = new BaseClient('Bot ' + process.env.TOKEN, {
   options: {
     autoreconnect: true,
