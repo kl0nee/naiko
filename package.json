@@ -38,7 +38,7 @@
     "kairo.js": "^1.0.4",
     "math-expression-evaluator": "^1.2.22",
     "megadb": "^3.4.0",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "moment-duration-format": "^2.3.2",
     "mongo-eco.js": "^1.0.4-fixed2",
     "mongoose": "^5.11.5",
